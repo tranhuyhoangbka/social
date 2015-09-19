@@ -11,6 +11,10 @@ class User < ActiveRecord::Base
   has_many :image_posts, dependent: :destroy
   has_many :comments, dependent: :destroy
 
+  validates :email, presence: true, uniqueness: true
+
+  has_secure_password
+
   def following?(leader)
     leaders.include? leader
   end

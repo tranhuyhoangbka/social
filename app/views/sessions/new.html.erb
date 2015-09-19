@@ -1,0 +1,19 @@
+<div class="page-header">
+  <h1>Log in</h1>
+</div>
+
+<%= form_tag login_path do %>
+  <div class="form-group">
+    <%= label_tag :email %>
+    <%= email_field_tag :email, params[:email], class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= label_tag :password %>
+    <%= password_field_tag :password, nil, class: "form-control" %>
+  </div>
+
+  <div class="actions">
+    <%= submit_tag "Login", data: {disable_with: "Sending..."}, class: "btn btn-primary" %>
+  </div>
+<% end %>
