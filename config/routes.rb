@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
-  get 'sessions/new'
 
   root "posts#index"
-  resources :comments
   resources :comments
   resources :image_posts
   resources :text_posts
@@ -12,6 +10,7 @@ Rails.application.routes.draw do
   get "/login" => "sessions#new", as: :login
   post "/login" => "sessions#create", as: :logins
   delete "/logout" => "sessions#destroy", as: :logout
+  post "/follow/:id" => "users#follow", as: :follow
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -1,0 +1,13 @@
+<div class="page-header">
+  <h1>User</h1>
+</div>
+<% if current_user != @user && !current_user.following?(@user) %>
+  <%= link_to "Follow", follow_path(@user), method: :post, class: "btn btn-primary" %>
+<% elsif current_user.following?(@user) %>
+  <button type="button" class="btn btn-default">Followed</button>
+<% end %>
+
+<p class="lead"><%= @user.email %></p>
+<h2>Post</h2>
+<%= render @posts %>
+<%= link_to "Home", root_path, class: "btn btn-primary" %>
