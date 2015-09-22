@@ -8,7 +8,7 @@
   <div class="panel-body">
     <p><em>By <%= text_post.user.name %></em></p>
     <%= sanitize text_post.body %>
-    <p><%= pluralize text_post.cached_comment_count, "Comment" %></p>
+    <p><%= pluralize text_post.comments.count, "Comment" %></p>
   </div>
 
   <% if text_post.user == current_user %>
